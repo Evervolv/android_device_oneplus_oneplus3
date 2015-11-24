@@ -496,6 +496,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+    group system wakelock
     writepid /dev/cpuset/system-background/tasks
 
 service rfs_access /system/bin/rfs_access
@@ -626,11 +627,12 @@ service qmiproxy /system/bin/qmiproxy
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps nfc qcom_diag
+    group radio audio bluetooth wakelock gps nfc qcom_diag
     writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/bin/netmgrd
     class main
+    group system wakelock
     writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/bin/ipacm-diag
