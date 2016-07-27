@@ -337,6 +337,10 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += TelephonyMonitor
 endif
 
+# Thermal packages
+PRODUCT_PACKAGES += \
+    thermal.msm8996
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
