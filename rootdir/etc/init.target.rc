@@ -37,12 +37,25 @@ on early-init
 
 on fs
     wait /dev/block/bootdevice
-    mount_all fstab.qcom
+    mount_all fstab.qcom --early
     swapon_all fstab.qcom
 
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
+
+on late-fs
+    # Enable audio and video device for bootanim
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_slpi/boot 1
+
+    # Start bootanim and its dependencies
+    start servicemanager
+    start surfaceflinger
+    start audioserver
+    start bootanim
+    # mount RW partitions which need run fsck
+    mount_all fstab.qcom --late
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
