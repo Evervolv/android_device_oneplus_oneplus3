@@ -299,6 +299,11 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
 
+# Set snapshot timer to 3 second
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.snapshot_enabled=1 \
+    persist.radio.snapshot_timer=3
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.is_wps_enabled=true \
     persist.radio.RATE_ADAPT_ENABLE=1 \
