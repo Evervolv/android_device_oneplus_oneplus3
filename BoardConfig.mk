@@ -207,6 +207,15 @@ USE_SENSOR_MULTI_HAL := true
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
 
+# TWRP
+TW_THEME := portrait_hdpi
+BOARD_HAS_NO_REAL_SDCARD := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_DEFAULT_LANGUAGE := en-US
+TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_CRYPTO := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
