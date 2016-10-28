@@ -19,8 +19,11 @@ ANDROID_ROOT="${MY_DIR}/../../.."
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
-    echo "Unable to find helper script at ${HELPER}"
-    exit 1
+    HELPER="${ANDROID_ROOT}/vendor/ev/build/tools/extract_utils.sh"
+    if [ ! -f "${HELPER}" ]; then
+        echo "Unable to find helper script at ${HELPER}"
+        exit 1
+    fi
 fi
 source "${HELPER}"
 
