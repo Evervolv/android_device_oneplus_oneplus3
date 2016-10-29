@@ -74,10 +74,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=23
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
-
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapgrowthlimit=256m \
@@ -163,12 +159,7 @@ PRODUCT_PACKAGES += \
 # Display calibration
 PRODUCT_PACKAGES += \
     FOSSConfig.xml \
-    qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml \
-    libjni_livedisplay
-
-# Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
+    qdcm_calib_data_samsung_s6e3fa3_1080p_cmd_mode_dsi_panel.xml
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -177,10 +168,6 @@ PRODUCT_PACKAGES += \
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
-
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -216,10 +203,6 @@ PRODUCT_COPY_FILES += \
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8996
-
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    libjni_livedisplay
 
 # Media
 PRODUCT_COPY_FILES += \
