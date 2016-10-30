@@ -287,6 +287,20 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
+    # Subsytem Restart
+    # venus
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
+    # kgsl-hyp
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    # cnss
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    # lpass
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
+    # ssc
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level "related"
+    # mss
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level "related"
+
     # change this when HAL3 is working
     setprop persist.camera.HAL3.enabled 1
 
