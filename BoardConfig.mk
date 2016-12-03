@@ -1,4 +1,5 @@
 # Copyright (C) 2016 The CyanogenMod Project
+#           (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -122,7 +123,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CNE and DPM
-TARGET_LDPRELOAD := libNimsWrap.so
 BOARD_USES_QCNE := true
 
 # Crypto
@@ -189,6 +189,9 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 # PowerHAL
 TARGET_POWERHAL_VARIANT := oneplus3
 TARGET_USES_INTERACTION_BOOST := true
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
