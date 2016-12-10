@@ -39,10 +39,3 @@ PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_CODENAME := Plures
 PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Evervolv for your OnePlus 3\nPlease visit us at \#evervolv on irc.freenode.net\nFollow @preludedrew for the latest Evervolv updates\nGet the latest rom at evervolv.com\n------------------------------------------------\n"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=OnePlus3 \
-    PRODUCT_NAME=OnePlus3 \
-    BUILD_FINGERPRINT=OnePlus/OnePlus3/OnePlus3:7.0/NRD90M/12161319:user/release-keys \
-    PRIVATE_BUILD_DESC="OnePlus3-user 7.0 NRD90M 86 dev-keys"
-
