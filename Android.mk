@@ -80,4 +80,36 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
+BTN_NV30_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/btnv30.bin
+$(BTN_NV30_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Bluetooth nv30 link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/etc/firmware/nvm_tlv_3.0.bin $@
+
+BTN_FW30_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/btfw30.tlv
+$(BTN_FW30_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Bluetooth nv30 link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/etc/firmware/rampatch_tlv_3.0.tlv $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(BTN_NV30_SYMLINK) $(BTN_FW30_SYMLINK)
+
+BTN_NV32_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/btnv32.bin
+$(BTN_NV32_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Bluetooth nv30 link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/etc/firmware/nvm_tlv_3.2.bin $@
+
+BTN_FW32_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/btfw32.tlv
+$(BTN_FW32_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Bluetooth nv30 link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/etc/firmware/rampatch_tlv_3.2.tlv $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(BTN_NV32_SYMLINK) $(BTN_FW32_SYMLINK)
+
 endif
