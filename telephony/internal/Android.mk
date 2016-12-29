@@ -1,5 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(wildcard vendor/codeaurora/telephony/internal/Android.mk),)
+
 include $(CLEAR_VARS)
 
 LOCAL_AIDL_INCLUDES := $(LOCAL_PATH)/src/org
@@ -16,3 +18,5 @@ include $(BUILD_JAVA_LIBRARY)
 # Include subdirectory makefiles
 # ============================================================
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
+endif
