@@ -43,6 +43,6 @@ PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank yo
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=OnePlus3 \
     PRODUCT_NAME=OnePlus3 \
-    BUILD_FINGERPRINT=OnePlus/OnePlus3/OnePlus3:6.0.1/MMB29M/362280:user/release-keys \
-    PRIVATE_BUILD_DESC="OnePlus3-user 6.0.1 MMB29M 24 dev-keys"
+    BUILD_FINGERPRINT=OnePlus/OnePlus3/OnePlus3:7.0/NRD90M/12161319:user/release-keys \
+    PRIVATE_BUILD_DESC="OnePlus3-user 7.0 NRD90M 86 dev-keys"
 
