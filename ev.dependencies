@@ -18,6 +18,12 @@
     "branch": "ng-7.1-8996"
  },
  {
+    "repository": "android_hardware_qcom_bt",
+    "target_path": "hardware/qcom/bt-caf",
+    "dep_type": "hardware",
+    "branch": "ng-7.1-caf"
+ },
+ {
     "repository": "android_kernel_oneplus_msm8996",
     "target_path": "kernel/oneplus/msm8996",
     "dep_type": "kernel"
