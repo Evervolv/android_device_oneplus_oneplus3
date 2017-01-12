@@ -327,6 +327,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     sensors.msm8996
 
+# TelephonyMonitor
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += TelephonyMonitor
+endif
+
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
