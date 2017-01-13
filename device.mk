@@ -165,7 +165,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
 
 PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=rome
