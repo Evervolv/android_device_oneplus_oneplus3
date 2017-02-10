@@ -299,6 +299,16 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.is_wps_enabled=true \
+    persist.radio.RATE_ADAPT_ENABLE=1 \
+    persist.radio.ROTATION_ENABLE=1 \
+    persist.radio.sw_mbn_update=1 \
+    persist.radio.videopause.mode=1 \
+    persist.radio.VT_ENABLE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1 \
+    persist.radio.data_con_rprt=true
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996
