@@ -1,0 +1,2 @@
+allow bluetooth_loader self:capability dac_override;
+

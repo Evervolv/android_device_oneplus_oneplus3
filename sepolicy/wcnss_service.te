@@ -6,9 +6,9 @@ allow wcnss_service self:capability {
 };
 r_dir_file(wcnss_service, sdcardfs);
 r_dir_file(wcnss_service, media_rw_data_file);
-allow wcnss_service sdcardfs:file append;
+allow wcnss_service sdcardfs:file { write append };
 allow wcnss_service media_rw_data_file:file append;
 get_prop(wcnss_service, diag_prop);
 
-allow wcnss_service sdcardfs:dir search;
+allow wcnss_service sdcardfs:dir { write search };
 allow wcnss_service media_rw_data_file:dir search;
