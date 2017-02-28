@@ -268,3 +268,11 @@
 /dev/block/platform/soc/7464900.sdhci/by-name/frp       0600   system     system
 /dev/block/platform/soc/624000.ufshc/by-name/frp        0600   system     system
 /dev/block/platform/soc/1da4000.ufshc/by-name/frp       0600   system     system
+
+# cpuquiet rqbalance permissions
+/sys/devices/system/cpu/cpuquiet/nr_min_cpus                         0660 system system
+/sys/devices/system/cpu/cpuquiet/nr_power_max_cpus                   0660 system system
+/sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus                 0660 system system
+/sys/devices/system/cpu/cpuquiet/rqbalance/balance_level             0660 system system
+/sys/devices/system/cpu/cpuquiet/rqbalance/nr_run_thresholds         0660 system system
+/sys/devices/system/cpu/cpuquiet/rqbalance/nr_down_run_thresholds    0660 system system
