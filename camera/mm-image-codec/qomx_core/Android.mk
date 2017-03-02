@@ -23,5 +23,7 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libcutils libdl liblog
 
+LOCAL_HEADER_LIBRARIES := OmxCore_headers gralloc_headers
+
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)
