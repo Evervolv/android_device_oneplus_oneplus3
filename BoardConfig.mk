@@ -138,6 +138,7 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 TARGET_USES_HWC2 := true
 BOARD_USE_LEGACY_UI := true
+TARGET_USES_GRALLOC1 := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
