@@ -28,6 +28,9 @@ $(call inherit-product, $(SRC_EVERVOLV_DIR)/config/common_full_phone.mk)
 # Pull all dictionaries
 $(call inherit-product, $(SRC_EVERVOLV_DIR)/config/dictionaries/intl.mk)
 
+# Inherit evervolv overlays.
+DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay_ev
+
 # Bootanimation
 BOOT_ANIMATION_SIZE := 1080p
 
