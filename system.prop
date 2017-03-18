@@ -33,11 +33,6 @@ bt.max.hfpclient.connections=1
 persist.bt.enableAptXHD=true
 qcom.bluetooth.soc=rome
 
-# Camera
-persist.camera.imglib.fddsp=1
-persist.camera.llc=1
-persist.camera.llnoise=1
-
 # Display power reduction (FOSS)
 ro.qcom.dpps.sensortype=3
 ro.qualcomm.display.paneltype=1
