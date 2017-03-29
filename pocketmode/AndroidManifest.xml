@@ -13,7 +13,8 @@
 
     <application
         android:label="OneplusPocketMode"
-        android:persistent="true">
+        android:persistent="true"
+        android:directBootAware="true">
 
         <receiver android:name="org.lineageos.pocketmode.BootCompletedReceiver">
             <intent-filter>

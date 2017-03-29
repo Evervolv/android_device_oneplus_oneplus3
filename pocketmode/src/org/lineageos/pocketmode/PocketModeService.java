@@ -24,9 +24,15 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PocketModeService extends Service {
     private static final String TAG = "PocketModeService";
     private static final boolean DEBUG = false;
+
+    private static final String ACTION_POCKETMODE_UPDATE = "org.lineageos.pocketmode.UPDATE";
+    private static List<BroadcastReceiver> mReceiverList = new ArrayList<BroadcastReceiver>();
 
     private ProximitySensor mProximitySensor;
 
@@ -35,9 +41,8 @@ public class PocketModeService extends Service {
         if (DEBUG) Log.d(TAG, "Creating service");
         mProximitySensor = new ProximitySensor(this);
 
-        IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        registerReceiver(mScreenStateReceiver, screenStateFilter);
+        IntentFilter updateFilter = new IntentFilter(ACTION_POCKETMODE_UPDATE);
+        registerReceiver(mUpdateReceiver, updateFilter);
     }
 
     @Override
@@ -50,7 +55,10 @@ public class PocketModeService extends Service {
     public void onDestroy() {
         if (DEBUG) Log.d(TAG, "Destroying service");
         super.onDestroy();
-        this.unregisterReceiver(mScreenStateReceiver);
+        if (mReceiverList.contains(mScreenStateReceiver)) {
+            this.unregisterReceiver(mScreenStateReceiver);
+        }
+        this.unregisterReceiver(mUpdateReceiver);
         mProximitySensor.disable();
     }
 
@@ -76,6 +84,22 @@ public class PocketModeService extends Service {
                 onDisplayOn();
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
                 onDisplayOff();
+            }
+        }
+    };
+
+    private BroadcastReceiver mUpdateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getBooleanExtra("enable", false)) {
+                IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+                screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
+                registerReceiver(mScreenStateReceiver, screenStateFilter);
+                mReceiverList.add(mScreenStateReceiver);
+            } else if (mReceiverList.contains(mScreenStateReceiver)) {
+                unregisterReceiver(mScreenStateReceiver);
+                mReceiverList.remove(mScreenStateReceiver);
+                mProximitySensor.disable();
             }
         }
     };
