@@ -23,16 +23,16 @@
   <string name="ambient_display_summary_off">La pantalla no s\'encendrà quan rebis notificacions</string>
   <!-- Tilt sensor -->
   <string name="tilt_sensor_title">Sensor d\'inclinació</string>
-  <string name="pick_up_title">Contesta</string>
-  <string name="pick_up_summary">Mostra les notificacions quan es reculli el dispositiu</string>
+  <string name="pick_up_gesture_title">Contesta</string>
+  <string name="pick_up_gesture_summary">Mostra les notificacions quan es reculli el dispositiu</string>
   <!-- Proximity sensor -->
-  <string name="priximity_sensor_title">Sensor de proximitat</string>
+  <string name="proximity_sensor_title">Sensor de proximitat</string>
   <string name="hand_wave_gesture_title">Passa la mà</string>
   <string name="hand_wave_gesture_summary">Mostra notificacions quan es passi la mà</string>
   <string name="pocket_gesture_title">Butxaca</string>
   <string name="pocket_gesture_summary">Mostra notificacions quan te\'l treguis de la butxaca</string>
   <!-- Help text -->
-  <string name="dlg_ok">D\'ACORD</string>
+  <string name="dialog_ok">D\'ACORD</string>
   <string name="doze_settings_help_title">Ajuda</string>
   <string name="doze_settings_help_text">Aquestes característiques utilitzen esdeveniments dels sensors per llançar una notificació latent. El sensor escollit només serà habilitat quan el dispositiu rebi una notificació, això ajuda a reduir l\'ús de la bateria. També hi ha una opció per habilitar el sensor escollit tan aviat com s\'apagui la pantalla, això causarà un major ús de la bateria.</string>
 </resources>

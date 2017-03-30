@@ -19,15 +19,15 @@
   <string name="ambient_display_summary">הפעל את המסך כשמתקבלות התראות</string>
   <!-- Tilt sensor -->
   <string name="tilt_sensor_title">חיישן הטייה</string>
-  <string name="pick_up_title">הרמה</string>
-  <string name="pick_up_summary">הצג התראות כשהמכשיר מורם</string>
+  <string name="pick_up_gesture_title">הרמה</string>
+  <string name="pick_up_gesture_summary">הצג התראות כשהמכשיר מורם</string>
   <!-- Proximity sensor -->
-  <string name="priximity_sensor_title">חיישן קרבה</string>
+  <string name="proximity_sensor_title">חיישן קרבה</string>
   <string name="hand_wave_gesture_title">הנפת יד</string>
   <string name="hand_wave_gesture_summary">הדגש התראות בהנפת יד</string>
   <string name="pocket_gesture_title">כיס</string>
   <string name="pocket_gesture_summary">הצג התראות בהוצאה מהכיס</string>
   <!-- Help text -->
-  <string name="dlg_ok">אישור</string>
+  <string name="dialog_ok">אישור</string>
   <string name="doze_settings_help_title">עזרה</string>
 </resources>
