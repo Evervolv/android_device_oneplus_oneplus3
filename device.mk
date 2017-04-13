@@ -427,6 +427,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
     $(LOCAL_PATH)/configs/thermal-engine-vr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-vr.conf
 
+# Toybox
+PRODUCT_PACKAGES += \
+    toybox_vendor
+
 # Usb
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
