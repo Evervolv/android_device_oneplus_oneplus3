@@ -429,6 +429,8 @@ PRODUCT_COPY_FILES += \
 
 # Toybox
 PRODUCT_PACKAGES += \
+    mkshrc_vendor \
+    sh_vendor \
     toybox_vendor
 
 # Usb
