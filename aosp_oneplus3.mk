@@ -29,7 +29,7 @@ PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
-$(call inherit-product-if-exists, vendor/oneplus/oneplus3/oneplus3-vendor.mk)
+$(call inherit-product, vendor/oneplus/oneplus3/oneplus3-vendor.mk)
 
 PRODUCT_PACKAGES += \
     Launcher3
