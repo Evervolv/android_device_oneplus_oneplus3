@@ -156,6 +156,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bluetooth.opp=true \
     ro.qualcomm.bluetooth.pbap=true
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/iot_devlist.conf:system/etc/bluetooth/iot_devlist.conf
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap \
