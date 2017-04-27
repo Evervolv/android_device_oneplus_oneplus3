@@ -27,7 +27,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define LOG_NIDEBUG 0
+#define LOG_NDEBUG 1
 
 #include <errno.h>
 #include <inttypes.h>
@@ -110,7 +110,7 @@ static struct hw_module_methods_t power_module_methods = {
 
 static void power_init(struct power_module *module)
 {
-    ALOGI("QCOM power HAL initing.");
+    ALOGV("QCOM power HAL initing.");
 
     int fd;
     char buf[10] = {0};
@@ -141,7 +141,7 @@ static void process_video_decode_hint(void *metadata)
     }
 
     if (metadata) {
-        ALOGI("Processing video decode hint. Metadata: %s", (char *)metadata);
+        ALOGV("Processing video decode hint. Metadata: %s", (char *)metadata);
     }
 
     /* Initialize encode metadata struct fields. */
@@ -490,7 +490,7 @@ void set_interactive(struct power_module *module, int on)
         return;
     }
 
-    ALOGI("Got set_interactive hint");
+    ALOGV("Got set_interactive hint");
 
     if (get_scaling_governor(governor, sizeof(governor)) == -1) {
         ALOGE("Can't obtain scaling governor.");
