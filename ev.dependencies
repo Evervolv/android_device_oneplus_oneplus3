@@ -1,5 +1,15 @@
 [
  {
+    "repository": "android_external_libnetfilter_conntrack",
+    "target_path": "external/libnetfilter_conntrack",
+    "dep_type": "external"
+ },
+ {
+    "repository": "android_external_libnfnetlink",
+    "target_path": "external/libnfnetlink",
+    "dep_type": "external"
+ },
+ {
     "repository": "android_hardware_qcom_audio-caf",
     "target_path": "hardware/qcom/audio-caf/msm8996",
     "dep_type": "hardware",
