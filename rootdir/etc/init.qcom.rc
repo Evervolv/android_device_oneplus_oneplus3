@@ -25,6 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import init.qcom.power.rc
 import init.qcom.usb.rc
 import init.target.rc
 
@@ -44,20 +45,6 @@ on init
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
-
-    # cpuquiet rqbalance permissions
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_power_max_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/balance_level
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/nr_run_thresholds
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/nr_down_run_thresholds
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_power_max_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/balance_level
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/nr_run_thresholds
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/nr_down_run_thresholds
 
     # Setup zram options
     write /sys/block/zram0/comp_algorithm lz4
