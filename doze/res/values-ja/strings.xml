@@ -23,16 +23,16 @@
   <string name="ambient_display_summary_off">通知を受信したときに画面を点灯しない</string>
   <!-- Tilt sensor -->
   <string name="tilt_sensor_title">傾きセンサー</string>
-  <string name="pick_up_gesture_title">持ち上げ</string>
-  <string name="pick_up_gesture_summary">端末を持ち上げたときに通知を点滅表示する</string>
+  <string name="pick_up_title">持ち上げ</string>
+  <string name="pick_up_summary">端末を持ち上げたときに通知を点滅表示する</string>
   <!-- Proximity sensor -->
-  <string name="proximity_sensor_title">接近センサー</string>
+  <string name="priximity_sensor_title">接近センサー</string>
   <string name="hand_wave_gesture_title">手を振る</string>
   <string name="hand_wave_gesture_summary">手を振ったときに通知を点滅表示する</string>
   <string name="pocket_gesture_title">ポケット</string>
   <string name="pocket_gesture_summary">ポケットから取り出したときに通知を点滅表示する</string>
   <!-- Help text -->
-  <string name="dialog_ok">OK</string>
+  <string name="dlg_ok">OK</string>
   <string name="doze_settings_help_title">ヘルプ</string>
   <string name="doze_settings_help_text">これらの機能は、Doze通知点滅表示を起動するためにセンサーイベントを使用します。それによって、電池の使用量が多くなります。</string>
 </resources>

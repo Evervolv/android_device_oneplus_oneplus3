@@ -23,16 +23,16 @@
   <string name="ambient_display_summary_off">Екрана няма да се събуди, когато получавате уведомления</string>
   <!-- Tilt sensor -->
   <string name="tilt_sensor_title">Сензор за наклон</string>
-  <string name="pick_up_gesture_title">Отговор</string>
-  <string name="pick_up_gesture_summary">Светлинна индикация, когато устройството е вдигнато</string>
+  <string name="pick_up_title">Отговор</string>
+  <string name="pick_up_summary">Светлинна индикация, когато устройството е вдигнато</string>
   <!-- Proximity sensor -->
-  <string name="proximity_sensor_title">Сензор за близост</string>
+  <string name="priximity_sensor_title">Сензор за близост</string>
   <string name="hand_wave_gesture_title">Махане с ръка</string>
   <string name="hand_wave_gesture_summary">Показва известията при прекарване на ръка над екрана</string>
   <string name="pocket_gesture_title">Джоб</string>
   <string name="pocket_gesture_summary">Показва известията, когато извадите устройството от джоба си</string>
   <!-- Help text -->
-  <string name="dialog_ok">ОK</string>
+  <string name="dlg_ok">ОK</string>
   <string name="doze_settings_help_title">Помощ</string>
   <string name="doze_settings_help_text">Тези функции използват сензорни събития да показват известия, когато устройството е в състояние на покой. Избраният сензор се активира само когато устройството получава уведомление, което помага за намаляване на използването на батерията. Има и опция за активиране на избрания сензор, така че екранът се изключва, което ще доведе до увеличаване на използването на батерията.</string>
 </resources>
