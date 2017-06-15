@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">Til</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">Fra</string>
   <string name="ambient_display_title">Inaktivitetsvisning</string>
   <string name="ambient_display_summary">Tænder skærmen, når du modtager notifikationer</string>
   <string name="ambient_display_summary_on">Skærmen vil tænde, når du modtager underretninger</string>

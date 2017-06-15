@@ -33,8 +33,6 @@ public class DozeSettings extends SettingsDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.doze);
-
         getFragmentManager().beginTransaction().replace(R.id.content_frame,
                 new DozeSettingsFragment(), TAG_DOZE).commit();
     }

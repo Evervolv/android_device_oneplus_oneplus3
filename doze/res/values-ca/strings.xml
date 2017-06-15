@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">Sí</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">No</string>
   <string name="ambient_display_title">Pantalla ambient</string>
   <string name="ambient_display_summary">Encen la pantalla quan rebis notificacions</string>
   <string name="ambient_display_summary_on">La pantalla s\'encendrà quan rebis notificacions</string>

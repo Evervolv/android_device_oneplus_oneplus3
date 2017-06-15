@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">På</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">Av</string>
   <string name="ambient_display_title">Ambient visning</string>
   <string name="ambient_display_summary">Våkne skjermen når du får varsler</string>
   <string name="ambient_display_summary_on">Skjermen våkner når du mottar varsler</string>

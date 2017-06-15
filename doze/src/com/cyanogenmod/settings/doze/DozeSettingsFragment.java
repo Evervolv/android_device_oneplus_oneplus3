@@ -42,8 +42,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
     private SharedPreferences mPreferences;
 
-    private Switch mSwitch;
-
     private SwitchPreference mPickUpPreference;
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPocketPreference;
@@ -70,14 +68,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View view = LayoutInflater.from(getContext()).inflate(R.layout.doze, container, false);
-        ((ViewGroup) view).addView(super.onCreateView(inflater, container, savedInstanceState));
-        return view;
     }
 
     @Override
@@ -123,24 +113,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mHandwavePreference.setEnabled(enabled);
         mPocketPreference.setEnabled(enabled);
     }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        View switchBar = view.findViewById(R.id.switch_bar);
-        mSwitch = (Switch) switchBar.findViewById(android.R.id.switch_widget);
-        mSwitch.setChecked(Utils.isDozeEnabled(getActivity()));
-        mSwitch.setOnCheckedChangeListener(this);
-
-        switchBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSwitch.setChecked(!mSwitch.isChecked());
-            }
-        });
-    }
-
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {

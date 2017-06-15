@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">Vkl.</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">Izk.</string>
   <string name="ambient_display_title">Okoliški zaslon</string>
   <string name="ambient_display_summary">Zbudi zaslon ob prejemu obvestila</string>
   <string name="ambient_display_summary_on">Zaslon se bo vklopil, ko prejmete obvestila</string>

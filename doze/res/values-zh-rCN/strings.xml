@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">开</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">关</string>
   <string name="ambient_display_title">环境显示</string>
   <string name="ambient_display_summary">当接收到通知时唤醒屏幕</string>
   <string name="ambient_display_summary_on">当接收到通知时将唤醒屏幕</string>

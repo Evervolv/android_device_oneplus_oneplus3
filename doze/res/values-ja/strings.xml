@@ -13,10 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_on">ON</string>
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <string name="switch_bar_off">OFF</string>
   <string name="ambient_display_title">アンビエント表示</string>
   <string name="ambient_display_summary">通知を受信したときに画面を点灯する</string>
   <string name="ambient_display_summary_on">通知を受信したときに画面を点灯する</string>

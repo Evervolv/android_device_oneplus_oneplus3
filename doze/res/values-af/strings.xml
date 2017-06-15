@@ -13,8 +13,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
-  <!-- Label for feature switch [CHAR LIMIT=30] -->
   <string name="ambient_display_title">Omgewings temperatuur skerm</string>
   <string name="ambient_display_summary">Skerm sal wakker word wanneer jy kennisgewings ontvang</string>
   <!-- Tilt sensor -->
