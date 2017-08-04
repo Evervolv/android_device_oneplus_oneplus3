@@ -400,7 +400,10 @@ PRODUCT_PACKAGES += \
 
 # VR
 PRODUCT_PACKAGES += \
-    vr.msm8996
+    vr.msm8996 \
+    android.hardware.vr@1.0-impl \
+    android.hardware.vr@1.0-service
+
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
