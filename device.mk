@@ -345,6 +345,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
+# VR
+PRODUCT_PACKAGES += \
+    vr.msm8996
+
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
