@@ -12,20 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Call this first so apn list is actually copied
-$(call inherit-product, $(SRC_EVERVOLV_DIR)/config/apns.mk)
-
 # Inherit from oneplus3 device
 $(call inherit-product, device/oneplus/oneplus3/aosp_oneplus3.mk)
 
 # Inherit some common evervolv stuff.
 $(call inherit-product, $(SRC_EVERVOLV_DIR)/config/common_full_phone.mk)
 
-# Pull all dictionaries
-$(call inherit-product, $(SRC_EVERVOLV_DIR)/config/dictionaries/intl.mk)
-
 # Inherit evervolv overlays.
-DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay_ev
+#DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay_ev
 
 # Bootanimation
 BOOT_ANIMATION_SIZE := 1080p
