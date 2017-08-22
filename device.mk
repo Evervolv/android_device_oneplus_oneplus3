@@ -236,6 +236,10 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service \
     OneplusPocketMode
 
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8996 \
