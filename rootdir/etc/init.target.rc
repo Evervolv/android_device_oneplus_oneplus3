@@ -248,13 +248,6 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
-#fingerprint service
-service fingerprintd /system/vendor/bin/fingerprintd
-    class late_start
-    user system
-    group system
-    writepid /dev/cpuset/system-background/tasks
-
 service qfp-daemon /system/vendor/bin/qfp-daemon
     class late_start
     user system
