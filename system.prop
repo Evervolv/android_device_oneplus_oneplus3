@@ -31,7 +31,6 @@ ro.cutoff_voltage_mv=3250
 # Bluetooth
 bt.max.hfpclient.connections=1
 persist.bt.enableAptXHD=true
-qcom.bluetooth.soc=rome
 
 # Display power reduction (FOSS)
 ro.qcom.dpps.sensortype=3
