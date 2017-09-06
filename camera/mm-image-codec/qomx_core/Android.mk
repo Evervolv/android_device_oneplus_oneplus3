@@ -23,7 +23,9 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libcutils libdl liblog
 
+ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
 LOCAL_HEADER_LIBRARIES := OmxCore_headers gralloc_headers
+endif
 
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)

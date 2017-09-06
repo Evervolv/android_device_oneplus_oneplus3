@@ -3,6 +3,8 @@
 # @brief Makefile for installing  time services header on Android.
 ################################################################################
 
+ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
+
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -12,3 +14,5 @@ LOCAL_MODULE:=time-services
 LOCAL_EXPORT_C_INCLUDE_DIRS:=$(LOCAL_PATH)
 
 include $(BUILD_HEADER_LIBRARY)
+
+endif
