@@ -93,9 +93,6 @@ av.debug.disable.pers.cache=true
 # Additional i/p buffer in case of encoder DCVS
 vidc.enc.dcvs.extra-buff-count=2
 
-# disable PQ feature by default
-vendor.vidc.enc.disable.pq=true
-
 #
 # system props for the data modules
 #
