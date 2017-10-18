@@ -180,12 +180,6 @@ vendor.camera.hal1.packagelist=com.whatsapp
 persist.ts.postmakeup=false
 persist.ts.rtmakeup=false
 
-#Enable device orientation sensor
-ro.qti.sensors.dev_ori=false
-ro.qti.sensors.pmd=false
-ro.qti.sensors.sta_detect=false
-ro.qti.sensors.mot_detect=false
-
 # ro.location properties below are used in conjunction
 # with NLP_MODE setting in /vendor/etc/izat.conf
 # either as the main network provider or as a fallback
