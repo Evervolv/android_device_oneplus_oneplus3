@@ -82,6 +82,9 @@ bt.max.hfpclient.connections=1
 # System property for cabl
 ro.qualcomm.cabl=2
 
+# Property to enable display default color mode
+vendor.display.enable_default_color_mode=1
+
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
