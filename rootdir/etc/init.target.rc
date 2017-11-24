@@ -40,7 +40,7 @@ on early-init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all /vendor/etc/fstab.qcom
     swapon_all /vendor/etc/fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -52,25 +52,6 @@ on fs
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
-
-    # Start HW service manager early
-    start hwservicemanager
-
-on late-fs
-    # Enable audio and video device for bootanim
-    write /sys/kernel/boot_adsp/boot 1
-    write /sys/kernel/boot_cdsp/boot 1
-    write /sys/kernel/boot_slpi/boot 1
-
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start hwcomposer-2-1
-    start configstore-hal-1-0
-    start gralloc-2-0
-
-    # mount RW partitions which need run fsck
-    mount_all /vendor/etc/fstab.qcom  --late
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
@@ -161,20 +142,6 @@ on boot
     chown root system /proc/tri-state-key/keyCode_bottom
     chmod 0660 /proc/tri-state-key/keyCode_bottom
 
-    # cpuquiet rqbalance permissions
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_min_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_power_max_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_power_max_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/balance_level
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/balance_level
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/nr_run_thresholds
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/nr_run_thresholds
-    chown system system /sys/devices/system/cpu/cpuquiet/rqbalance/nr_down_run_thresholds
-    chmod 0660 /sys/devices/system/cpu/cpuquiet/rqbalance/nr_down_run_thresholds
-
     # Graphics
     chown system graphics /sys/class/graphics/fb0/dyn_pu
     chmod 0664 /sys/class/graphics/fb0/dyn_pu
@@ -188,6 +155,8 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/hbm
     chown system graphics /sys/class/graphics/fb0/srgb
     chmod 0664 /sys/class/graphics/fb0/srgb
+    chown system graphics /sys/class/graphics/fb0/dci_p3
+    chmod 0664 /sys/class/graphics/fb0/dci_p3
 
     # Fingerprint
     chmod 0664 /sys/devices/soc/soc:fpc_fpc1020/irq
@@ -251,12 +220,20 @@ on boot
     chmod 660 /sys/class/leds/blue/start_idx
     chmod 660 /sys/class/leds/rgb/rgb_blink
 
+    setprop persist.camera.HAL3.enabled 1
+
 #start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
+
+#fingerprint service
+service fingerprintd /system/vendor/bin/fingerprintd
+    class late_start
+    user system
+    group system
 
 service qfp-daemon /system/vendor/bin/qfp-daemon
     class late_start
@@ -295,7 +272,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service mdm_launcher /system/bin/sh init.mdm.sh
+service mdm_launcher /vendor/bin/sh init.mdm.sh
      class core
      oneshot
 
@@ -358,7 +335,7 @@ service secotad /system/vendor/bin/secotad
 #   group system
 #   disabled
 #
-service thermal-engine /system/vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
+service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
