@@ -427,10 +427,6 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libprotobuf-cpp-full
 
-# RRO
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
