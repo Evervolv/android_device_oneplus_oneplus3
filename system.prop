@@ -16,8 +16,6 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-# Start in global mode
-#ro.telephony.default_network=10
 
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
@@ -83,11 +81,6 @@ bt.max.hfpclient.connections=1
 
 # System property for cabl
 ro.qualcomm.cabl=2
-
-#
-# System props for telephony
-# System prop to turn on CdmaLTEPhone always
-#telephony.lteOnCdmaDevice=1
 
 #Simulate sdcard on /data/media
 #
