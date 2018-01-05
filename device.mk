@@ -180,7 +180,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     Snap \
-    camera.msm8996 \
     libcamera_shim \
     libcamera_parameters_shim \
     camera.device@1.0-impl \
