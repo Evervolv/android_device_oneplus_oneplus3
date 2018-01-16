@@ -55,10 +55,7 @@ public class ProximitySensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] < mSensor.getMaximumRange();
-        if (FileUtils.isFileWritable(FPC_FILE)) {
-            FileUtils.writeLine(FPC_FILE, isNear ? "1" : "0");
-        }
+        updateProximityState(event.values[0] < mSensor.getMaximumRange());
     }
 
     @Override
@@ -78,6 +75,15 @@ public class ProximitySensor implements SensorEventListener {
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
             mSensorManager.unregisterListener(this, mSensor);
+            updateProximityState(/* isNear */ false);
         });
+    }
+
+    private void updateProximityState(boolean isNear) {
+        if (FileUtils.isFileWritable(FPC_FILE)) {
+            FileUtils.writeLine(FPC_FILE, isNear ? "1" : "0");
+        } else {
+            Log.e(TAG, "Proximity state file is not writable!");
+        }
     }
 }
