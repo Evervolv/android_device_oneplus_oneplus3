@@ -15,3 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/ev_oneplus3.mk
+
+COMMON_LUNCH_CHOICES := \
+    ev_oneplus3-user \
+    ev_oneplus3-userdebug \
+    ev_oneplus3-eng
