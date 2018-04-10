@@ -189,7 +189,8 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
+    qcom.bluetooth.soc=rome \
+    vendor.qcom.bluetooth.soc=rome
 
 # Camera
 PRODUCT_PACKAGES += \
