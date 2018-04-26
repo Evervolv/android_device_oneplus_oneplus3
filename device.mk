@@ -178,6 +178,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=7 \
     audio_hal.period_multiplier=2
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
