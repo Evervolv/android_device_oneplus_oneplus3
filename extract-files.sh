@@ -76,3 +76,9 @@ sed -i \
     -e 's/_ZN7qcamera17QCameraParameters21handleSuperResoultionEv/_ZN7qcamera17QCameraParameters21handleSuperResoultiSHIM/' \
     -e 's/_ZN7qcamera17QCameraParameters17isSuperResoultionEv/_ZN7qcamera17QCameraParameters17isSuperResoultiSHIM/' \
     "$CAMERA_HAL"
+
+#
+# Correct android.hidl.manager@1.0-java jar name
+#
+sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" \
+    "$COMMON_BLOB_ROOT"/etc/permissions/qti_libpermissions.xml
