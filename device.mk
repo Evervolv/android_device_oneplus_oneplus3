@@ -265,6 +265,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
+# Google Assistant
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.opa.eligible_device=true
+
 # GPS
 PRODUCT_PACKAGES += \
     libcurl \
