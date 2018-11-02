@@ -83,6 +83,9 @@ sed -i \
     -e 's/_ZN7qcamera17QCameraParameters17isSuperResoultionEv/_ZN7qcamera17QCameraParameters17isSuperResoultiSHIM/' \
     "$CAMERA_HAL"
 
+sed -i "s|\/data\/vendor\/misc\/audio\/acdbdata\/delta\/|\/data\/vendor\/audio\/acdbdata\/delta\/\x00\x00\x00\x00\x00|g" \
+    "$COMMON_BLOB_ROOT"/vendor/lib/libaudcal.so
+
 #
 # Correct android.hidl.manager@1.0-java jar name
 #
