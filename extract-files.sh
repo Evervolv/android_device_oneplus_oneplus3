@@ -65,11 +65,7 @@ extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
 "$MY_DIR"/setup-makefiles.sh
 
-COMMON_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
-
-patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/vendor/lib64/vendor.qti.gnss@1.0_vendor.so
-
-CAMERA_HAL="$COMMON_BLOB_ROOT"/vendor/lib/hw/camera.msm8996.so
+CAMERA_HAL="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/vendor/lib/hw/camera.msm8996.so
 
 sed -i \
     -e 's/_ZN7qcamera17QCameraParameters16setQuadraCfaModeEjb/_ZN7qcamera17QCameraParameters16setQuadraCfaModSHIM/' \
