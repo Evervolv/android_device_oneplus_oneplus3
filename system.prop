@@ -235,6 +235,7 @@ persist.vendor.radio.data_ltd_sys_ind=1
 persist.vendor.radio.data_con_rprt=1
 persist.radio.efssync=true
 #end
+persist.rcs.supported=1 \
 
 # Display power reduction (FOSS)
 ro.vendor.display.sensortype=3
