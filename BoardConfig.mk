@@ -220,6 +220,9 @@ BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib/hw/camera.msm8996.so|libcamera_shim.so
 
+# Symlinks
+TARGET_MOUNT_POINTS_SYMLINKS := false
+
 # Thermal
 USE_DEVICE_SPECIFIC_THERMAL := true
 
