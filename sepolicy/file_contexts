@@ -26,6 +26,7 @@
 
 # Lights
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.oneplus3    u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/evervolv\.touch@1\.0-service\.oneplus3             u:object_r:hal_evervolv_touch_default_exec:s0
 
 # Ril
 /data/oemnvitems(/.*)?                                          u:object_r:vendor_radio_data_file:s0
