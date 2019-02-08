@@ -20,6 +20,7 @@
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include "KeyDisabler.h"
 #include "TouchscreenGesture.h"
 
 using android::hardware::configureRpcThreadpool;
@@ -28,14 +29,21 @@ using android::sp;
 using android::status_t;
 using android::OK;
 
-using ::vendor::evervolv::touch::V1_0::ITouchscreenGesture;
+using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
 using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
+    sp<KeyDisabler> keyDisabler;
     sp<TouchscreenGesture> touchscreenGesture;
     status_t status;
 
     LOG(INFO) << "Touch HAL service is starting.";
+
+    keyDisabler = new KeyDisabler();
+    if (keyDisabler == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
+        goto shutdown;
+    }
 
     touchscreenGesture = new TouchscreenGesture();
     if (touchscreenGesture == nullptr) {
@@ -44,6 +52,16 @@ int main() {
     }
 
     android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    if (keyDisabler->isSupported()) {
+        status = keyDisabler->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for Touch HAL KeyDisabler Iface ("
+                << status << ")";
+            goto shutdown;
+        }
+    }
 
     status = touchscreenGesture->registerAsService();
     if (status != OK) {
