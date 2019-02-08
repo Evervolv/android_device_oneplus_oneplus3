@@ -3,6 +3,10 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider@2\.4-service\.oneplus3       u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/remosaic_daemon                     u:object_r:remosaic_daemon_exec:s0
 
+# Bluetooth
+/(vendor|system/vendor)/lib(64)?/libaptX_encoder\.so            u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libaptXHD_encoder\.so          u:object_r:same_process_hal_file:s0
+
 # Charger
 /dev/dash                                                       u:object_r:dash_device:s0
 /sbin/dashd                                                     u:object_r:dashd_exec:s0
