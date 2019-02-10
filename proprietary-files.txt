@@ -540,6 +540,11 @@ framework/com.qti.location.sdk.jar|79ec49a9e521631dd6661a62216e1d06947f5ef9
 framework/izat.xt.srv.jar|b6418394481311aac9e1282ff77d6845c45f99da
 lib64/liblocationservice_jni.so|2cdb4f1085e8d71cdcbe3e17673e13a39adf6786
 lib64/libxt_native.so|4f1063ec145b241d74b2178e2aadafa5c9b386b2
+lib/vendor.qti.gnss@1.0.so|eddf81581610bdad45674d31e9b88eb8a9d08784
+lib/vendor.qti.gnss@1.1.so|fea7124d30c04636974dfdbe1a348ff249d897fe
+lib/vendor.qti.gnss@1.2.so|818c951a47baa82f72da4266e61e41cfef16a67c
+lib/vendor.qti.gnss@2.0.so|a559459c08f995fc9b1c92a63777058f8f1c0070
+lib/vendor.qti.gnss@2.1.so|a3554a924e9e20c02d9411a5221c19fba3374a84
 lib64/vendor.qti.gnss@1.0.so|90b465adc4542f16fbdd935d0592df73d778909b
 lib64/vendor.qti.gnss@1.1.so|1edcf36fc3afbc465e53e3b74f99fde1e952f718
 lib64/vendor.qti.gnss@1.2.so|fc002fdced5768ed97936fde007476c1e9eaabb2
