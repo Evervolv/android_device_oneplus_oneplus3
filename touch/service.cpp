@@ -20,6 +20,7 @@
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include "GloveMode.h"
 #include "KeyDisabler.h"
 #include "TouchscreenGesture.h"
 
@@ -29,15 +30,23 @@ using android::sp;
 using android::status_t;
 using android::OK;
 
+using ::vendor::evervolv::touch::V1_0::implementation::GloveMode;
 using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
 using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
+    sp<GloveMode> gloveMode;
     sp<KeyDisabler> keyDisabler;
     sp<TouchscreenGesture> touchscreenGesture;
     status_t status;
 
     LOG(INFO) << "Touch HAL service is starting.";
+
+    gloveMode = new GloveMode();
+    if (gloveMode == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
+        goto shutdown;
+    }
 
     keyDisabler = new KeyDisabler();
     if (keyDisabler == nullptr) {
@@ -52,6 +61,16 @@ int main() {
     }
 
     android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    if (gloveMode->isSupported()) {
+        status = gloveMode->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for Touch HAL GloveMode Iface ("
+                << status << ")";
+            goto shutdown;
+        }
+    }
 
     if (keyDisabler->isSupported()) {
         status = keyDisabler->registerAsService();
