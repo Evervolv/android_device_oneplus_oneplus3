@@ -19,6 +19,7 @@
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include "GloveMode.h"
 #include "KeyDisabler.h"
 #include "KeySwapper.h"
 #include "TouchscreenGesture.h"
@@ -26,15 +27,18 @@
 using ::android::OK;
 using ::android::sp;
 
+using ::vendor::evervolv::touch::V1_0::IGloveMode;
 using ::vendor::evervolv::touch::V1_0::IKeyDisabler;
 using ::vendor::evervolv::touch::V1_0::IKeySwapper;
 using ::vendor::evervolv::touch::V1_0::ITouchscreenGesture;
+using ::vendor::evervolv::touch::V1_0::implementation::GloveMode;
 using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
 using ::vendor::evervolv::touch::V1_0::implementation::KeySwapper;
 using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     sp<ITouchscreenGesture> gesture_service = new TouchscreenGesture();
+    sp<IGloveMode> glove_mode = new GloveMode();
     sp<IKeyDisabler> key_disabler = new KeyDisabler();
     sp<IKeySwapper> key_swapper = new KeySwapper();
 
@@ -52,6 +56,11 @@ int main() {
 
     if (key_swapper->registerAsService() != OK) {
         LOG(ERROR) << "Cannot register keyswapper HAL service.";
+        return 1;
+    }
+
+    if (glove_mode->registerAsService() != OK) {
+        LOG(ERROR) << "Cannot register glove mode HAL service.";
         return 1;
     }
 
