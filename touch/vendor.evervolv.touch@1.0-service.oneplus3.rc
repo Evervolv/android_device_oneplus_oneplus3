@@ -1,4 +1,12 @@
 on boot
+    # Glove mode
+    chmod 0660 /proc/touchpanel/glove_mode_enable
+    chown system system /proc/touchpanel/glove_mode_enable
+
+    # Key disabler
+    chmod 0660 /proc/s1302/virtual_key
+    chown system system /proc/s1302/virtual_key
+
     # Touchscreen
     chmod 0660 /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/up_swipe_enable
