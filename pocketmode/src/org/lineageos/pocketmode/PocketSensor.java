@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2016 The CyanogenMod Project
- *               2018 The LineageOS Project
+ *               2018-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.evervolv.internal.util.FileUtils;
@@ -29,11 +30,12 @@ import com.evervolv.internal.util.FileUtils;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.List;
 
-public class ProximitySensor implements SensorEventListener {
+public class PocketSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "PocketModeProximity";
+    private static final String TAG = "PocketSensor";
 
     private static final String FPC_FILE = "/sys/devices/soc/soc:fpc_fpc1020/proximity_state";
 
@@ -42,10 +44,10 @@ public class ProximitySensor implements SensorEventListener {
     private Context mContext;
     private ExecutorService mExecutorService;
 
-    public ProximitySensor(Context context) {
+    public PocketSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mSensor = findSensorWithType("com.oneplus.sensor.pocket");
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -55,7 +57,7 @@ public class ProximitySensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        updateProximityState(event.values[0] < mSensor.getMaximumRange());
+        updateProximityState(event.values[0] == 1);
     }
 
     @Override
@@ -85,5 +87,18 @@ public class ProximitySensor implements SensorEventListener {
         } else {
             Log.e(TAG, "Proximity state file is not writable!");
         }
+    }
+
+    protected Sensor findSensorWithType(String type) {
+        if (TextUtils.isEmpty(type)) {
+            return null;
+        }
+        List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+        for (Sensor s : sensorList) {
+            if (type.equals(s.getStringType())) {
+                return s;
+            }
+        }
+        return null;
     }
 }

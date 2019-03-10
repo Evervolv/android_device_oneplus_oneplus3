@@ -34,12 +34,12 @@ public class PocketModeService extends Service {
     private static final String ACTION_POCKETMODE_UPDATE = "org.lineageos.pocketmode.UPDATE";
     private static List<BroadcastReceiver> mReceiverList = new ArrayList<BroadcastReceiver>();
 
-    private ProximitySensor mProximitySensor;
+    private PocketSensor mPocketSensor;
 
     @Override
     public void onCreate() {
         if (DEBUG) Log.d(TAG, "Creating service");
-        mProximitySensor = new ProximitySensor(this);
+        mPocketSensor = new PocketSensor(this);
 
         IntentFilter updateFilter = new IntentFilter(ACTION_POCKETMODE_UPDATE);
         registerReceiver(mUpdateReceiver, updateFilter);
@@ -59,7 +59,7 @@ public class PocketModeService extends Service {
             this.unregisterReceiver(mScreenStateReceiver);
         }
         this.unregisterReceiver(mUpdateReceiver);
-        mProximitySensor.disable();
+        mPocketSensor.disable();
     }
 
     @Override
@@ -69,12 +69,12 @@ public class PocketModeService extends Service {
 
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
-        mProximitySensor.disable();
+        mPocketSensor.disable();
     }
 
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
-        mProximitySensor.enable();
+        mPocketSensor.enable();
     }
 
     private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
@@ -99,7 +99,7 @@ public class PocketModeService extends Service {
             } else if (mReceiverList.contains(mScreenStateReceiver)) {
                 unregisterReceiver(mScreenStateReceiver);
                 mReceiverList.remove(mScreenStateReceiver);
-                mProximitySensor.disable();
+                mPocketSensor.disable();
             }
         }
     };
