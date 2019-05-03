@@ -242,6 +242,9 @@ PRODUCT_PROPERTY_OVERRIDES  += \
     ro.opengles.version=196610 \
     ro.sf.lcd_density=420
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.protected_contents=true
+
 # Display calibration
 PRODUCT_PACKAGES += \
     FOSSConfig.xml \
