@@ -103,4 +103,10 @@
             2 - Supported with variable brightness control
     -->
     <integer name="config_deviceSupportsButtonBrightnessControl">2</integer>
+
+    <!-- Whether device has physical tri state switch -->
+    <bool name="config_hasAlertSlider">true</bool>
+
+    <!-- The location of the devices physical tri state switch -->
+    <integer name="config_alertSliderLocation">1</integer>
 </resources>
