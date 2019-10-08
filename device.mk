@@ -272,7 +272,7 @@ PRODUCT_PACKAGES += \
 
 # Encryption
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-service-qti
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
