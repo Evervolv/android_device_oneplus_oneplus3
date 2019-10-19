@@ -35,7 +35,6 @@
 #include <log_util.h>
 #include <loc_log.h>
 #include <loc_pla.h>
-#include <processgroup/sched_policy.h>
 
 static void LocMsgDestroy(void* msg) {
     delete (LocMsg*)msg;
@@ -75,16 +74,19 @@ void MsgTask::destroy() {
 }
 
 void MsgTask::sendMsg(const LocMsg* msg) const {
-    if (msg) {
+    if (msg && this) {
         msg_q_snd((void*)mQ, (void*)msg, LocMsgDestroy);
     } else {
-        LOC_LOGE("%s: msg is NULL", __func__);
+        LOC_LOGE("%s: msg is %p and this is %p",
+                 __func__, msg, this);
     }
 }
 
 void MsgTask::prerun() {
+#ifndef FEATURE_EXTERNAL_AP
     // make sure we do not run in background scheduling group
      set_sched_policy(gettid(), SP_FOREGROUND);
+#endif /* FEATURE_EXTERNAL_AP */
 }
 
 bool MsgTask::run() {
