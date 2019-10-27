@@ -64,11 +64,3 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
 "$MY_DIR"/setup-makefiles.sh
-
-COMMON_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
-
-#
-# Correct android.hidl.manager@1.0-java jar name
-#
-sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" \
-    "$COMMON_BLOB_ROOT"/etc/permissions/qti_libpermissions.xml
