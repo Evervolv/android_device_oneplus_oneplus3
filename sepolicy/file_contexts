@@ -18,7 +18,7 @@
 # Hardware
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.oneplus3    u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.evervolv\.touch@1\.0-service\.oneplus3                    u:object_r:hal_evervolv_touch_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.pixel         u:object_r:hal_thermal_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.oneplus3         u:object_r:hal_thermal_default_exec:s0
 
 # OTA
 /system/bin/move_time_data\.sh                                  u:object_r:move-time-data-sh_exec:s0
