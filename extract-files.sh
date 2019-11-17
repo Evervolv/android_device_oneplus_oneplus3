@@ -64,3 +64,8 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
 "$MY_DIR"/setup-makefiles.sh
+
+DEVICE_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+
+patchelf --set-soname "vulkan.msm8996.so" "$DEVICE_BLOB_ROOT"/vendor/lib/hw/vulkan.msm8996.so
+patchelf --set-soname "vulkan.msm8996.so" "$DEVICE_BLOB_ROOT"/vendor/lib64/hw/vulkan.msm8996.so
