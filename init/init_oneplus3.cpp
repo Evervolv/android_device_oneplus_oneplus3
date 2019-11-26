@@ -44,10 +44,10 @@ constexpr const char* RO_PROP_SOURCES[] = {
         nullptr, "product.", "product_services.", "odm.", "vendor.", "system.", "bootimage.",
 };
 
-constexpr const char* BUILD_DESCRIPTION = "OnePlus3-user 9 PKQ1.181203.001 1907311932 release-keys";
+constexpr const char* BUILD_DESCRIPTION = "OnePlus3-user 9 PKQ1.181203.001 1911042107 release-keys";
 constexpr const char* BUILD_FINGERPRINT[] = {
-        "OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1907311932:user/release-keys",
-        "OnePlus/OnePlus3/OnePlus3T:9/PKQ1.181203.001/1907311932:user/release-keys",
+        "OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1911042107:user/release-keys",
+        "OnePlus/OnePlus3/OnePlus3T:9/PKQ1.181203.001/1911042107:user/release-keys",
 };
 
 void property_override(char const prop[], char const value[]) {
