@@ -20,7 +20,7 @@ $(call inherit-product, device/oneplus/oneplus3/aosp_oneplus3.mk)
 $(call inherit-product, $(SRC_EVERVOLV_DIR)/config/common_full_phone.mk)
 
 # Inherit evervolv overlays.
-DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay_ev
+DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay-ev
 
 # Bootanimation
 BOOT_ANIMATION_SIZE := 1080p
