@@ -37,7 +37,7 @@ public final class Utils {
 
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
-    protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up";
+    protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up_type";
     protected static final String GESTURE_HAND_WAVE_KEY = "gesture_hand_wave";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
 
@@ -65,13 +65,19 @@ public final class Utils {
         return new AmbientDisplayConfiguration(context).alwaysOnEnabled(UserHandle.USER_CURRENT);
     }
 
+    protected static boolean isPickUpEnabled(Context context) {
+        return !PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(GESTURE_PICK_UP_KEY, "0").equals("0");
+    }
+
+    protected static boolean isPickUpSetToWake(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(GESTURE_PICK_UP_KEY, "0").equals("2");
+    }
+
     protected static boolean isGestureEnabled(Context context, String gesture) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(gesture, false);
-    }
-
-    protected static boolean isPickUpEnabled(Context context) {
-        return isGestureEnabled(context, GESTURE_PICK_UP_KEY);
     }
 
     protected static boolean isHandwaveGestureEnabled(Context context) {

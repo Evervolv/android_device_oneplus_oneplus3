@@ -19,12 +19,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto" >
 
-    <SwitchPreference
-        android:key="gesture_pick_up"
+    <ListPreference
+        android:key="gesture_pick_up_type"
+        android:defaultValue="0"
         android:icon="@drawable/ic_pickup"
         android:title="@string/pick_up_gesture_title"
-        android:summary="@string/pick_up_gesture_summary"
-        android:persistent="false" />
+        android:summary="%s"
+        android:entries="@array/pick_up_gesture_entries"
+        android:entryValues="@array/pick_up_gesture_values" />
 
     <SwitchPreference
         android:key="gesture_hand_wave"
