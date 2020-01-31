@@ -29,6 +29,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
+    device/oneplus/common \
     device/oneplus/oneplus3 \
     vendor/nxp/opensource/pn5xx
 
@@ -283,7 +284,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OneplusPocketMode \
     android.hardware.biometrics.fingerprint@2.1-service \
-    vendor.oneplus.fingerprint.extension@1.0
+    vendor.oneplus.fingerprint.extension@1.0 \
+    vendor.oneplus.hardware.display@1.0
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
