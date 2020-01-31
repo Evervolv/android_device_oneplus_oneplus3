@@ -33,6 +33,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
+    device/oneplus/common \
     device/oneplus/oneplus3 \
     vendor/nxp/opensource/pn5xx
 
