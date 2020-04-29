@@ -16,8 +16,6 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 DEVICE_PROVISIONED=1
-# Set network mode to Global by default and no DSDS/DSDA
-ro.telephony.default_network=10
 persist.sys.fflag.override.settings_network_and_internet_v2=true
 
 debug.sf.enable_hwc_vds=1
