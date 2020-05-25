@@ -212,8 +212,12 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-qti.rc
 endif
 
+PRODUCT_PACKAGES += \
+    BluetoothQti
+
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.qcom.bluetooth.soc=rome
+    vendor.qcom.bluetooth.soc=rome \
+    ro.bluetooth.library_name=libbluetooth_qti.so
 
 # Camera
 PRODUCT_PACKAGES += \
