@@ -1,20 +1,20 @@
 # ADSP
-vendor/bin/adsprpcd|17dc89427000e8145bd7cb3eb1ae1b45a7b0f8d4
-vendor/lib/libadsp_default_listener.so|48741bb1effb38b9bcbf6392e90779d75de98b57
+vendor/bin/adsprpcd
+vendor/lib/libadsp_default_listener.so
 vendor/lib/libadsp_hvx_callback_skel.so
 vendor/lib/libadsp_hvx_stub.so
-vendor/lib/libadsprpc.so|8d5463f75395bd571aee5a55baca3a10efbb3dc0
+vendor/lib/libadsprpc.so
 vendor/lib/libcdsprpc.so
-vendor/lib/libfastcvadsp_stub.so|0382c53e0882ae5463e1a04522b5de7e506b0c59
-vendor/lib/libfastcvopt.so|057708e620ffe928a834ac230d89cd2ce65ea5da
-vendor/lib/libmdsprpc.so|812b190cce2acad81bef60f1ce691fda9607ddf0
+vendor/lib/libfastcvadsp_stub.so
+vendor/lib/libfastcvopt.so
+vendor/lib/libmdsprpc.so
 vendor/lib/libsdsprpc.so
-vendor/lib64/libadsp_default_listener.so|69e44430215ce66ca071cfcf2af6dbf9b1adce11
-vendor/lib64/libadsprpc.so|b7e5f267422508f13fd3068e84e2051fb0770253
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
 vendor/lib64/libcdsprpc.so
-vendor/lib64/libfastcvadsp_stub.so|66c2df03439982e85e3c678ecbc4ec65afda054e
+vendor/lib64/libfastcvadsp_stub.so
 vendor/lib64/libfastcvopt.so
-vendor/lib64/libmdsprpc.so|45011dd515c41129063e091abd253861673d7a42
+vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 
 # ADSP modules
@@ -517,7 +517,7 @@ vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libspl.so|5443114db96c1a534e6a338dec895af26dd9d863
+vendor/lib64/libspl.so
 vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
@@ -674,9 +674,9 @@ vendor/lib/libvqzip.so|24e5eb30e5a2cdb544c8688d81d7cc75a1d85eaf
 vendor/lib/libpn548ad_fw.so
 
 # Perf
-vendor/bin/energy-awareness|d9124bd669e2e3a1e2d40e96518ba18f15f21af6
-vendor/bin/hw/vendor.qti.hardware.perf@2.0-service|69186f92b781f1e296c99bb274c419591e1347cf
-vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc|cc8658db5e19f8e5e575fb986e7d38147e675f8d
+vendor/bin/energy-awareness
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
@@ -688,20 +688,16 @@ vendor/etc/perf/perf-profile6.conf
 vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
-vendor/lib/libperfconfig.so|e4e05181077427bbe80570d46c8cb6f7fa9d6779
-vendor/lib/libperfgluelayer.so|65370303ba1097c5d29f93910f9e2e1514fcd4b2
-vendor/lib/libqti-perfd-client.so|a6ddd909d581fbb5d8caa2f1f489ec5c2c5789c1
-vendor/lib/libqti-perfd.so|78ab50abc7ae3704e7645dd3363c5fb057832c6b
-vendor/lib/libqti-util.so|293284848723e0065f1097d363cd76772a795b8c
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-perfd.so
+vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.perf@1.0.so
-vendor/lib/vendor.qti.hardware.perf@2.0.so|592ca48b30ac1b8c42b21710bd6a41ebaa99e15f
-vendor/lib64/libperfconfig.so|bd0ec5a97a4bfada47f97ee81287483847fd41e1
-vendor/lib64/libperfgluelayer.so|56f9a84b8f6f11aec1ff4917f14dd80a6fe9ac92
-vendor/lib64/libqti-perfd-client.so|94ab278009a42e75c1d62f6dfc41d85b0cc1f412
-vendor/lib64/libqti-perfd.so|e9c153b810feb151491dd4ba702918fdd373d282
-vendor/lib64/libqti-util.so|e37c5fd07710a25edc9883507a14f83306d83d28
+vendor/lib64/libperfgluelayer.so
+vendor/lib64/libqti-perfd-client.so
+vendor/lib64/libqti-perfd.so
+vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@1.0.so
-vendor/lib64/vendor.qti.hardware.perf@2.0.so|df0788c7777b1906cd4a83bb6a722cc425377f17
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -727,6 +723,7 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|cbf2dd1cd5cbf0dbb90f1563a7
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so|680d4ad1999c8db44ee7d6240dda4ec1873e4c4d
 
 # QMI
+etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 lib/libdiag_system.so
 lib/libqmi_cci_system.so
@@ -827,8 +824,8 @@ vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
 vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 
 # Radio - from LA.UM.8.6.r1-01900-89xx.0
-product/framework/qti-telephony-common.jar|96154b2576114dd566bbc99a2d9af612de8849df
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml|68901007ba1a48ceb1b728fc3b5483dd51b5e3a0
+product/framework/qti-telephony-common.jar|96154b2576114dd566bbc99a2d9af612de8849df
 vendor/etc/init/dataadpl.rc|cd4907d9bfd438fe5f5c86f5d6cec590ac0bac2a
 vendor/etc/init/dataqti.rc|6abfd1a850d782adbbb6f42c9d8ca870036b2ad1
 vendor/etc/init/netmgrd.rc|213d147cfcfe175aa4cdf1a345f3b148ea72982d
@@ -954,10 +951,10 @@ vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal
-vendor/bin/thermal-engine|2d14a781f9738708a1b8cee4ddf833218ed97e23
--vendor/lib/libthermalclient.so|28fde51ddd79ebd811efe27fc93cb054e60339e4
--vendor/lib64/libthermalclient.so|61a8dfc6132836e7ed27b044ddc8a078b5c7299e
-vendor/lib64/libthermalioctl.so|3f0b6e48f673ce9f40140ba23ed227f9d1e2420b
+vendor/bin/thermal-engine
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
 
 # Time services - from LA.UM.8.6.r1-01900-89xx.0
 bin/move_time_data.sh|56f1f79a88db709a0c7ed5c507b14c55976d6f32
