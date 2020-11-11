@@ -522,10 +522,10 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
-# DRM - Widevine
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
-vendor/lib/libwvhidl.so
+# DRM - Widevine - from miui_DAISYGlobal_V11.0.2.0.QDLMIXM_d59f395371_10.0
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|e130b8f1c8d46d8a185b00cba5ff8a2a871ee94c
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|68767969f86126ada017fc09af151e299db651d5
+vendor/lib64/libwvhidl.so|d02a20d8e95e64c391e0af86a32dad869ceeb3b4
 
 # Fingerprint sensor
 lib64/fp_hal_extension.so
