@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,15 @@
  * limitations under the License.
  */
 
-#include <fstream>
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 
 #include "GloveMode.h"
+
+namespace {
+constexpr const char kControlPath[] = "/proc/touchpanel/glove_mode_enable";
+};  // anonymous namespace
 
 namespace vendor {
 namespace evervolv {
@@ -24,26 +30,29 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
-bool GloveMode::isSupported() {
-    std::ofstream file("/proc/touchpanel/glove_mode_enable");
-    return file.good();
-}
+GloveMode::GloveMode() : has_glove_mode_(!access(kControlPath, R_OK | W_OK)) {}
 
 // Methods from ::vendor::evervolv::touch::V1_0::IGloveMode follow.
 Return<bool> GloveMode::isEnabled() {
-    std::ifstream file("/proc/touchpanel/glove_mode_enable");
-    int status = -1;
+    if (!has_glove_mode_) return false;
 
-    if (file.is_open()) {
-        file >> status;
+    std::string buf;
+    if (!android::base::ReadFileToString(kControlPath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kControlPath;
+        return false;
     }
 
-    return file.good() && status == 0;
+    return std::stoi(android::base::Trim(buf)) == 1;
 }
 
 Return<bool> GloveMode::setEnabled(bool enabled) {
-    std::ofstream file("/proc/touchpanel/glove_mode_enable");
-    file << (enabled ? "1" : "0");
+    if (!has_glove_mode_) return false;
+
+    if (!android::base::WriteStringToFile(std::to_string(enabled), kControlPath)) {
+        LOG(ERROR) << "Failed to write " << kControlPath;
+        return false;
+    }
+
     return true;
 }
 

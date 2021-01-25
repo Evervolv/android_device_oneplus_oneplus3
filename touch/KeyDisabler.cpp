@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "KeyDisablerService"
-
-#include <fstream>
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 
 #include "KeyDisabler.h"
+
+namespace {
+constexpr const char kControlPath[] = "/proc/s1302/virtual_key";
+};  // anonymous namespace
 
 namespace vendor {
 namespace evervolv {
@@ -26,26 +30,29 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
-bool KeyDisabler::isSupported() {
-    std::ofstream file("/proc/s1302/virtual_key");
-    return file.good();
-}
+KeyDisabler::KeyDisabler() : has_key_disabler_(!access(kControlPath, R_OK | W_OK)) {}
 
 // Methods from ::vendor::evervolv::touch::V1_0::IKeyDisabler follow.
 Return<bool> KeyDisabler::isEnabled() {
-    std::ifstream file("/proc/s1302/virtual_key");
-    int status = -1;
+    if (!has_key_disabler_) return false;
 
-    if (file.is_open()) {
-        file >> status;
+    std::string buf;
+    if (!android::base::ReadFileToString(kControlPath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kControlPath;
+        return false;
     }
 
-    return file.good() && status == 0;
+    return std::stoi(android::base::Trim(buf)) == 1;
 }
 
 Return<bool> KeyDisabler::setEnabled(bool enabled) {
-    std::ofstream file("/proc/s1302/virtual_key");
-    file << (enabled ? "1" : "0");
+    if (!has_key_disabler_) return false;
+
+    if (!android::base::WriteStringToFile(std::to_string(enabled), kControlPath)) {
+        LOG(ERROR) << "Failed to write " << kControlPath;
+        return false;
+    }
+
     return true;
 }
 

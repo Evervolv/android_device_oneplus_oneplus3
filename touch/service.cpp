@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "evervolv.touch@1.0-service.oneplus3"
+#define LOG_TAG "vendor.evervolv.touch@1.0-service.oneplus3"
 
 #include <android-base/logging.h>
-#include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include "GloveMode.h"
@@ -25,96 +24,50 @@
 #include "KeySwapper.h"
 #include "TouchscreenGesture.h"
 
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
-using android::sp;
-using android::status_t;
-using android::OK;
+using ::android::OK;
+using ::android::sp;
 
+using ::vendor::evervolv::touch::V1_0::IGloveMode;
+using ::vendor::evervolv::touch::V1_0::IKeyDisabler;
+using ::vendor::evervolv::touch::V1_0::IKeySwapper;
+using ::vendor::evervolv::touch::V1_0::ITouchscreenGesture;
 using ::vendor::evervolv::touch::V1_0::implementation::GloveMode;
 using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
 using ::vendor::evervolv::touch::V1_0::implementation::KeySwapper;
 using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
-    sp<GloveMode> gloveMode;
-    sp<KeyDisabler> keyDisabler;
-    sp<KeySwapper> keySwapper;
-    sp<TouchscreenGesture> touchscreenGesture;
-    status_t status;
-
-    LOG(INFO) << "Touch HAL service is starting.";
-
-    gloveMode = new GloveMode();
-    if (gloveMode == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Touch HAL GloveMode Iface, exiting.";
-        goto shutdown;
-    }
-
-    keyDisabler = new KeyDisabler();
-    if (keyDisabler == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
-        goto shutdown;
-    }
-
-    keySwapper = new KeySwapper();
-    if (keySwapper == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Touch HAL KeySwapper Iface, exiting.";
-        goto shutdown;
-    }
-
-    touchscreenGesture = new TouchscreenGesture();
-    if (touchscreenGesture == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Touch HAL TouchscreenGesture Iface, exiting.";
-        goto shutdown;
-    }
+    sp<ITouchscreenGesture> gesture_service = new TouchscreenGesture();
+    sp<IGloveMode> glove_mode = new GloveMode();
+    sp<IKeyDisabler> key_disabler = new KeyDisabler();
+    sp<IKeySwapper> key_swapper = new KeySwapper();
 
     android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    if (gloveMode->isSupported()) {
-        status = gloveMode->registerAsService();
-        if (status != OK) {
-            LOG(ERROR)
-                << "Could not register service for Touch HAL GloveMode Iface ("
-                << status << ")";
-            goto shutdown;
-        }
+    if (gesture_service->registerAsService() != OK) {
+        LOG(ERROR) << "Cannot register touchscreen gesture HAL service.";
+        return 1;
     }
 
-    if (keyDisabler->isSupported()) {
-        status = keyDisabler->registerAsService();
-        if (status != OK) {
-            LOG(ERROR)
-                << "Could not register service for Touch HAL KeyDisabler Iface ("
-                << status << ")";
-            goto shutdown;
-        }
+    if (key_disabler->registerAsService() != OK) {
+        LOG(ERROR) << "Cannot register keydisabler HAL service.";
+        return 1;
     }
 
-    if (keySwapper->isSupported()) {
-        status = keySwapper->registerAsService();
-        if (status != OK) {
-            LOG(ERROR)
-                << "Could not register service for Touch HAL KeySwapper Iface ("
-                << status << ")";
-            goto shutdown;
-        }
+    if (key_swapper->registerAsService() != OK) {
+        LOG(ERROR) << "Cannot register keyswapper HAL service.";
+        return 1;
     }
 
-    status = touchscreenGesture->registerAsService();
-    if (status != OK) {
-        LOG(ERROR)
-            << "Could not register service for Touch HAL TouchscreenGesture Iface ("
-            << status << ")";
-        goto shutdown;
+    if (glove_mode->registerAsService() != OK) {
+        LOG(ERROR) << "Cannot register glove mode HAL service.";
+        return 1;
     }
 
-    LOG(INFO) << "Touch HAL service is ready.";
-    joinRpcThreadpool();
-    // Should not pass this line
+    LOG(INFO) << "Touchscreen HAL service ready.";
 
-shutdown:
-    // In normal operation, we don't expect the thread pool to shutdown
-    LOG(ERROR) << "Touch HAL service is shutting down.";
+    android::hardware::joinRpcThreadpool();
+
+    LOG(ERROR) << "Touchscreen HAL service failed to join thread pool.";
     return 1;
 }

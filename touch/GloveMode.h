@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_EVERVOLV_TOUCH_V1_0_GLOVEMODE_H
-#define VENDOR_EVERVOLV_TOUCH_V1_0_GLOVEMODE_H
+#pragma once
 
 #include <vendor/evervolv/touch/1.0/IGloveMode.h>
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
 
 namespace vendor {
 namespace evervolv {
@@ -27,32 +24,21 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
-using ::android::hardware::hidl_array;
-using ::android::hardware::hidl_memory;
-using ::android::hardware::hidl_string;
-using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
 
 class GloveMode : public IGloveMode {
   public:
-    GloveMode() = default;
-
-    bool isSupported();
-
-    // Methods from ::vendor::lineage::touch::V1_0::IGloveMode follow.
+    GloveMode();
+    // Methods from ::vendor::evervolv::touch::V1_0::IGloveMode follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
 
-    // Methods from ::android::hidl::base::V1_0::IBase follow.
-
+  private:
+    const bool has_glove_mode_;
 };
 
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V1_0
 }  // namespace touch
 }  // namespace evervolv
 }  // namespace vendor
-
-#endif  // VENDOR_EVERVOLV_TOUCH_V1_0_GLOVEMODE_H

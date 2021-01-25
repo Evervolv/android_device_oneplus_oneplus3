@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_EVERVOLV_TOUCH_V1_0_KEYSWAPPER_H
-#define VENDOR_EVERVOLV_TOUCH_V1_0_KEYSWAPPER_H
+#pragma once
 
 #include <vendor/evervolv/touch/1.0/IKeySwapper.h>
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
 
 namespace vendor {
 namespace evervolv {
@@ -28,20 +25,16 @@ namespace V1_0 {
 namespace implementation {
 
 using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
 
 class KeySwapper : public IKeySwapper {
   public:
-    KeySwapper() = default;
-
-    bool isSupported();
-
+    KeySwapper();
     // Methods from ::vendor::evervolv::touch::V1_0::IKeySwapper follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
 
-    // Methods from ::android::hidl::base::V1_0::IBase follow.
+  private:
+    const bool has_key_swapper_;
 };
 
 }  // namespace implementation
@@ -49,5 +42,3 @@ class KeySwapper : public IKeySwapper {
 }  // namespace touch
 }  // namespace evervolv
 }  // namespace vendor
-
-#endif  // VENDOR_EVERVOLV_TOUCH_V1_0_KEYSWAPPER_H

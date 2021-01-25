@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_EVERVOLV_TOUCH_V1_0_TOUCHSCREENGESTURE_H
-#define VENDOR_EVERVOLV_TOUCH_V1_0_TOUCHSCREENGESTURE_H
+#pragma once
 
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
 #include <vendor/evervolv/touch/1.0/ITouchscreenGesture.h>
-#include <map>
 
 namespace vendor {
 namespace evervolv {
@@ -30,7 +26,6 @@ namespace implementation {
 
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::sp;
 
 class TouchscreenGesture : public ITouchscreenGesture {
   public:
@@ -38,14 +33,6 @@ class TouchscreenGesture : public ITouchscreenGesture {
     Return<void> getSupportedGestures(getSupportedGestures_cb resultCb) override;
     Return<bool> setGestureEnabled(const ::vendor::evervolv::touch::V1_0::Gesture& gesture,
                                    bool enabled) override;
-
-  private:
-    typedef struct {
-        int32_t keycode;
-        const char* name;
-        const char* path;
-    } GestureInfo;
-    static const std::map<int32_t, GestureInfo> kGestureInfoMap;  // id -> info
 };
 
 }  // namespace implementation
@@ -53,5 +40,3 @@ class TouchscreenGesture : public ITouchscreenGesture {
 }  // namespace touch
 }  // namespace evervolv
 }  // namespace vendor
-
-#endif  // VENDOR_EVERVOLV_TOUCH_V1_0_TOUCHSCREENGESTURE_H

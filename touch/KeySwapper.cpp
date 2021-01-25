@@ -14,11 +14,15 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "KeySwapperService"
-
-#include <fstream>
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 
 #include "KeySwapper.h"
+
+namespace {
+constexpr const char kControlPath[] = "/proc/s1302/key_rep";
+};  // anonymous namespace
 
 namespace vendor {
 namespace evervolv {
@@ -26,26 +30,29 @@ namespace touch {
 namespace V1_0 {
 namespace implementation {
 
-bool KeySwapper::isSupported() {
-    std::ofstream file("/proc/s1302/key_rep");
-    return file.good();
-}
+KeySwapper::KeySwapper() : has_key_swapper_(!access(kControlPath, R_OK | W_OK)) {}
 
 // Methods from ::vendor::evervolv::touch::V1_0::IKeySwapper follow.
 Return<bool> KeySwapper::isEnabled() {
-    std::ifstream file("/proc/s1302/key_rep");
-    int status = -1;
+    if (!has_key_swapper_) return false;
 
-    if (file.is_open()) {
-        file >> status;
+    std::string buf;
+    if (!android::base::ReadFileToString(kControlPath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kControlPath;
+        return false;
     }
 
-    return file.good() && status == 0;
+    return std::stoi(android::base::Trim(buf)) == 1;
 }
 
 Return<bool> KeySwapper::setEnabled(bool enabled) {
-    std::ofstream file("/proc/s1302/key_rep");
-    file << (enabled ? "1" : "0");
+    if (!has_key_swapper_) return false;
+
+    if (!android::base::WriteStringToFile(std::to_string(enabled), kControlPath)) {
+        LOG(ERROR) << "Failed to write " << kControlPath;
+        return false;
+    }
+
     return true;
 }
 
