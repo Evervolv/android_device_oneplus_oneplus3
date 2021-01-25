@@ -22,6 +22,7 @@
 
 #include "GloveMode.h"
 #include "KeyDisabler.h"
+#include "KeySwapper.h"
 #include "TouchscreenGesture.h"
 
 using android::hardware::configureRpcThreadpool;
@@ -32,11 +33,13 @@ using android::OK;
 
 using ::vendor::evervolv::touch::V1_0::implementation::GloveMode;
 using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
+using ::vendor::evervolv::touch::V1_0::implementation::KeySwapper;
 using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     sp<GloveMode> gloveMode;
     sp<KeyDisabler> keyDisabler;
+    sp<KeySwapper> keySwapper;
     sp<TouchscreenGesture> touchscreenGesture;
     status_t status;
 
@@ -44,13 +47,19 @@ int main() {
 
     gloveMode = new GloveMode();
     if (gloveMode == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
+        LOG(ERROR) << "Can not create an instance of Touch HAL GloveMode Iface, exiting.";
         goto shutdown;
     }
 
     keyDisabler = new KeyDisabler();
     if (keyDisabler == nullptr) {
         LOG(ERROR) << "Can not create an instance of Touch HAL KeyDisabler Iface, exiting.";
+        goto shutdown;
+    }
+
+    keySwapper = new KeySwapper();
+    if (keySwapper == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL KeySwapper Iface, exiting.";
         goto shutdown;
     }
 
@@ -77,6 +86,16 @@ int main() {
         if (status != OK) {
             LOG(ERROR)
                 << "Could not register service for Touch HAL KeyDisabler Iface ("
+                << status << ")";
+            goto shutdown;
+        }
+    }
+
+    if (keySwapper->isSupported()) {
+        status = keySwapper->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for Touch HAL KeySwapper Iface ("
                 << status << ")";
             goto shutdown;
         }

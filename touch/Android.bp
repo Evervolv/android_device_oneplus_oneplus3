@@ -23,6 +23,7 @@ cc_binary {
     srcs: [
         "GloveMode.cpp",
         "KeyDisabler.cpp",
+        "KeySwapper.cpp",
         "TouchscreenGesture.cpp",
         "service.cpp",
     ],

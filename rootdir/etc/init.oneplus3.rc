@@ -98,10 +98,6 @@ on boot
     write /sys/bus/i2c/devices/12-0020/tp_fw_update 0
     write /proc/s1302/fw_update 0
 
-    # Buttons
-    chown system system /proc/s1302/key_rep
-    chmod 0660 /proc/s1302/key_rep
-
     chown system system /proc/tri-state-key/keyCode_top
     chmod 0660 /proc/tri-state-key/keyCode_top
 
