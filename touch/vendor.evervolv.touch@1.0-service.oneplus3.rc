@@ -1,4 +1,4 @@
-on boot
+on early-boot
     # Glove mode
     chmod 0660 /proc/touchpanel/glove_mode_enable
     chown system system /proc/touchpanel/glove_mode_enable
