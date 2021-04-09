@@ -21,9 +21,6 @@ $(call inherit-product, $(SRC_EVERVOLV_DIR)/config/common_full_phone.mk)
 
 # Inherit evervolv overlays.
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus3/overlay-ev
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    device/oneplus/oneplus3/overlay-ev/packages/apps/Snap \
-    device/oneplus/oneplus3/overlay-ev/vendor/ev/sdk
 
 # Bootanimation
 BOOT_ANIMATION_SIZE := 1080p
