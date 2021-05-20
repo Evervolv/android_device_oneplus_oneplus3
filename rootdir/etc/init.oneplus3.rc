@@ -25,6 +25,25 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on early-init
+    # boot time fs tune
+    write /sys/block/sda/queue/iosched/slice_idle 0
+
+    # Disable I/O stats.
+    write /sys/block/dm-0/queue/iostats 0
+    write /sys/block/dm-1/queue/iostats 0
+    write /sys/block/sda/queue/iostats 0
+
+    # Increase maximum number of I/O requests.
+    write /sys/block/dm-0/queue/nr_requests 256
+    write /sys/block/dm-1/queue/nr_requests 256
+    write /sys/block/sda/queue/nr_requests 256
+
+    # Increase readahead to 2MiB.
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/read_ahead_kb 2048
+
 on init
     # Disable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
@@ -39,15 +58,6 @@ on init
     chown system system /dev/cpuset/camera-daemon
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
-
-on late-fs
-    # boot time fs tune
-    write /sys/block/sda/queue/iostats 0
-    write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/read_ahead_kb 2048
-    write /sys/block/sda/queue/nr_requests 256
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs-data
     # Create oemnvitems for RIL
@@ -126,6 +136,12 @@ on boot
     # DASH
     chmod 0660 /dev/dash
 
+on property:vendor.post_boot.parsed=1
+    # Override readahead to 128KiB.
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/read_ahead_kb 128
+
 on charger
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
@@ -133,6 +149,11 @@ on charger
     start vendor.dashd
 
 on property:sys.boot_completed=1
+    # Override readahead to 128KiB.
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/read_ahead_kb 128
+
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/soc/${ro.boot.bootdevice}/${ro.boot.bootdevice}:ufs_variant/pm_qos_enable 1
