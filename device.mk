@@ -273,7 +273,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    OneplusPocketMode \
     android.hardware.biometrics.fingerprint@2.1-service \
     vendor.oneplus.fingerprint.extension@1.0
 
