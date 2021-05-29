@@ -389,6 +389,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default \
     vendor.qti.nfc.chipid=0x51
 
+# Notification slider
+PRODUCT_PACKAGES += \
+    KeyHandler
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
