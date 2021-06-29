@@ -43,6 +43,7 @@ cc_defaults {
 cc_binary {
     name: "vendor.lineage.livedisplay@2.0-service.oneplus3",
     init_rc: ["vendor.lineage.livedisplay@2.0-service.oneplus3.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay@2.0-service.oneplus3.xml"],
     defaults: ["livedisplay_oneplus3_defaults"],
     vendor: true,
 }
