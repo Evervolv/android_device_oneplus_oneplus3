@@ -861,7 +861,6 @@ lib64/lib-imsvt.so|b4c64da4750b4b47aed63e02f3df4bb7435873bd
 lib64/lib-imsvtextutils.so|8179841bb6c0b8261dfb5a0237258f734061681f
 lib64/lib-imsvtutils.so|2a4ab08c2de4778bc57e2e28aaf609988177ce9e
 lib64/librcc.so|c2977a8fc64ea69ca4b3afaf184f463744db4c7a
-lib64/vendor.qti.imsrtpservice@1.0.so|5938d942e1e0913019ffc9d5416906439a49f375
 vendor/bin/ims_rtp_daemon|c156d0e79677df61357474a2af27446a45b3726b
 vendor/bin/imsdatadaemon|09ca54e8cb2a22abe5a3e28c83d8335d9866f7ac
 vendor/bin/imsqmidaemon|8c041a7ff504f22cac44397957690b01b87bcf0d
@@ -891,6 +890,7 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so|af307244bb13833a79d1aae691b960
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so|d6663b9f2639d614188f29a4632941ec7dc95f6d
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|447d205fca7ea674f7f3f072e7d26ae0a0a9b4b4
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so|d057e3c70e1a4a767e3477f0b40f5462870e1311
+vendor/lib64/vendor.qti.imsrtpservice@1.0.so|5938d942e1e0913019ffc9d5416906439a49f375
 
 # Radio - IMS
 product/lib64/libimscamera_jni.so
