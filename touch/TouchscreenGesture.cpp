@@ -46,7 +46,7 @@ const std::unordered_map<int32_t, GestureInfo> kGestureInfoMap = {
 }  // anonymous namespace
 
 namespace vendor {
-namespace lineage {
+namespace evervolv {
 namespace touch {
 namespace V1_0 {
 namespace implementation {
@@ -63,7 +63,7 @@ Return<void> TouchscreenGesture::getSupportedGestures(getSupportedGestures_cb re
 }
 
 Return<bool> TouchscreenGesture::setGestureEnabled(
-        const ::vendor::lineage::touch::V1_0::Gesture& gesture, bool enabled) {
+        const ::vendor::evervolv::touch::V1_0::Gesture& gesture, bool enabled) {
     const auto entry = kGestureInfoMap.find(gesture.id);
     if (entry == kGestureInfoMap.end()) {
         return false;
@@ -79,5 +79,5 @@ Return<bool> TouchscreenGesture::setGestureEnabled(
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace touch
-}  // namespace lineage
+}  // namespace evervolv
 }  // namespace vendor

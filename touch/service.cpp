@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.oneplus3"
+#define LOG_TAG "vendor.evervolv.touch@1.0-service.oneplus3"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
@@ -26,12 +26,12 @@
 using ::android::OK;
 using ::android::sp;
 
-using ::vendor::lineage::touch::V1_0::IKeyDisabler;
-using ::vendor::lineage::touch::V1_0::IKeySwapper;
-using ::vendor::lineage::touch::V1_0::ITouchscreenGesture;
-using ::vendor::lineage::touch::V1_0::implementation::KeyDisabler;
-using ::vendor::lineage::touch::V1_0::implementation::KeySwapper;
-using ::vendor::lineage::touch::V1_0::implementation::TouchscreenGesture;
+using ::vendor::evervolv::touch::V1_0::IKeyDisabler;
+using ::vendor::evervolv::touch::V1_0::IKeySwapper;
+using ::vendor::evervolv::touch::V1_0::ITouchscreenGesture;
+using ::vendor::evervolv::touch::V1_0::implementation::KeyDisabler;
+using ::vendor::evervolv::touch::V1_0::implementation::KeySwapper;
+using ::vendor::evervolv::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     sp<ITouchscreenGesture> gesture_service = new TouchscreenGesture();

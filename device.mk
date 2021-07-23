@@ -337,7 +337,7 @@ PRODUCT_PACKAGES += \
 
 # Lineage hardware
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus3
+    vendor.evervolv.touch@1.0-service.oneplus3
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

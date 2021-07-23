@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.oneplus3",
-    init_rc: ["vendor.lineage.touch@1.0-service.oneplus3.rc"],
+    name: "vendor.evervolv.touch@1.0-service.oneplus3",
+    init_rc: ["vendor.evervolv.touch@1.0-service.oneplus3.rc"],
     defaults: ["hidl_defaults"],
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.oneplus3.xml"],
+    vintf_fragments: ["vendor.evervolv.touch@1.0-service.oneplus3.xml"],
     relative_install_path: "hw",
     vendor: true,
     srcs: [
@@ -30,6 +30,6 @@ cc_binary {
         "libbase",
         "libhidlbase",
         "libutils",
-        "vendor.lineage.touch@1.0",
+        "vendor.evervolv.touch@1.0",
     ],
 }

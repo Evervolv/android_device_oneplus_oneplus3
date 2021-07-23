@@ -25,7 +25,7 @@ on early-boot
     chown system system /proc/touchpanel/letter_o_enable
     chmod 0660 /proc/touchpanel/letter_o_enable
 
-service touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.oneplus3
+service touch-hal-1-0 /vendor/bin/hw/vendor.evervolv.touch@1.0-service.oneplus3
     class hal
     user system
     group system
